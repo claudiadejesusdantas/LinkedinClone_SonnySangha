@@ -12,6 +12,8 @@ import Post from "./Post";
 function Feed() {
     const [posts, setPosts] = useState([]);
 
+    
+
     const sendPost = e => {
         e.preventDefault();
     }
