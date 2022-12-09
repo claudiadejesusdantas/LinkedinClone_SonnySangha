@@ -8,10 +8,11 @@ import EventNoteIcon from '@mui/icons-material/EventNote';
 import CalendarViewDayIcon from '@mui/icons-material/CalendarViewDay';
 import Post from "./Post";
 import { db } from "./firebase";
+import { useSelector } from "react-redux";
+import { selectUser } from "./features/userSlice";
 
-
-
-function Feed() {
+function Feed() {    
+    const user = useSelector(selectUser);
     const [input, setInput] = useState("");
     const [posts, setPosts] = useState([]);
 
@@ -26,17 +27,15 @@ function Feed() {
         )
     });
 
-    const timestamp = new Date().getTime();
-
-    const sendPost = e => {
+    const sendPost = (e) => {
         e.preventDefault();
 
-        db.collection('posts').add({
-            name:'Nugget',
-            description:'this is a test',
+        db.collection("posts").add({
+            name: user.displayName,
+            description:user.email,
             message: input,
-            photoUrl: '',
-            timestamp: timestamp
+            photoUrl: user.photoUrl || "",
+            timestamp: new Date().getTime()
         });
 
         setInput("")

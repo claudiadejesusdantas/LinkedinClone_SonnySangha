@@ -6,15 +6,20 @@ import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import ChatBubbleOutlineIcon from '@mui/icons-material/ChatBubbleOutline';
 import ShareIcon from '@mui/icons-material/Share';
 import SendIcon from '@mui/icons-material/Send';
+import { useSelector } from 'react-redux';
+import { selectUser } from './features/userSlice';
+import { Email } from '@mui/icons-material';
 
 function Post({ name, description, message, photoUrl}){
+    const user = useSelector(selectUser);
+
     return(
         <div className='post'>
             <div className='post__header'>
-                <Avatar />
+            <Avatar src={photoUrl}>{name[0]}</Avatar>
                 <div className='post__info'>
-                    <h2>Claudia Dantas</h2>
-                    <p>Description</p>
+                    <h2>{name}</h2>
+                    <p>{description}</p>
                 </div>
             </div>
 
