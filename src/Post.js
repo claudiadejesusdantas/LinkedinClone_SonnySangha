@@ -27,7 +27,6 @@ function Post({ name, description, message, photoUrl}){
                 <InputOption Icon={ChatBubbleOutlineIcon} title="Comment" color="gray" />
                 <InputOption Icon={ShareIcon} title="Share" color="gray" />
                 <InputOption Icon={SendIcon} title="Send" color="gray" />
-
             </div>
 
         </div>
