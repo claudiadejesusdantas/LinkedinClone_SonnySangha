@@ -1,5 +1,5 @@
 import { Avatar } from '@mui/material';
-import React from "react";
+import React, {forwardRef} from "react";
 import InputOption from './InputOption';
 import "./Post.css"
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
@@ -10,9 +10,8 @@ import { useSelector } from 'react-redux';
 import { selectUser } from './features/userSlice';
 import { Email } from '@mui/icons-material';
 
-function Post({ name, description, message, photoUrl}){
+const Post= forwardRef( ({ name, description, message, photoUrl}, ref) => {
     const user = useSelector(selectUser);
-
     return(
         <div className='post'>
             <div className='post__header'>
@@ -36,6 +35,6 @@ function Post({ name, description, message, photoUrl}){
 
         </div>
     )
-}
+})
 
 export default Post;
