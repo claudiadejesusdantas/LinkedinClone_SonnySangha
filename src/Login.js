@@ -2,6 +2,10 @@ import React from "react";
 import './Login.css';
 
 function Login(){
+    const loginToApp = {} = {};
+    
+    const register = {} = {};
+
     return(
         <div className='login'>
             <img src="https://news.hitb.org/sites/default/files/styles/large/public/field/image/500px-LinkedIn_Logo.svg__1.png?itok=q_lR0Vks" alt="Logo do linkedin"/>
@@ -12,10 +16,11 @@ function Login(){
                 <input placeholder="Email" type='email'/>
                 <input placeholder="Password" type='password'/>
 
-                <button>Sing in</button>
+                <button type='submit' onClick={loginToApp}>Sing in</button>
             </form>
 
-            
+            <p>Not a member?</p>
+            <span className='login__register'>Register Now</span>
         </div>
     )
 }
